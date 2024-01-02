@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmConfigService } from './config/typeorm.config.service';
 import { ConfigModule } from '@nestjs/config';
 import { DepartmentModule } from './department/department.module';
+import { CustomApiModule } from './custom-api/custom-api.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { DepartmentModule } from './department/department.module';
     }),
     EmployeeModule,
     DepartmentModule,
+    CustomApiModule,
   ],
   controllers: [],
   providers: [],
