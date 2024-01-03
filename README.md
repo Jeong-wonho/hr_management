@@ -10,14 +10,17 @@
 
 ## API 명세
 
+api 명세는 다음과 같이 구성되어 있습니다.
+(Api 명, Method, Api URL, 설명, 요청예시, 응답예시)
+
 <table>
   <tr>
     <th>Api 명</th>
     <th>Method</th>
     <th>Api URL</th>
-    <th>설 명</th>
-    <th>요청 예시</th>
-    <th>응답 예시</th>  
+    <th>설명</th>
+    <th>요청예시</th>
+    <th>응답예시</th>  
   </tr>
   <tr>
     <td>Employee</td>
