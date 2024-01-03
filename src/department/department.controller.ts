@@ -7,12 +7,16 @@ export class DepartmentController {
   constructor(readonly departmentService: DepartmentService) {}
 
   //부서 및 위치 정보 조회 가능한 api
-  @Get()
-  async findAll(): Promise<Departments[]> {
-    return this.departmentService.findAll();
-  }
+  //   @Get()
+  //   async findAll(): Promise<Departments[]> {
+  //     return this.departmentService.findAll();
+  //   }
 
-  //특정 부서 별 위치 정보 조회 가능 api
+  /**
+   * 특정 부서 별 위치 정보 조회 가능 api
+   * @param locationId locationId를 입력합니다.
+   * @returns departments
+   */
   @Get('/:id')
   async findOne(@Param('id') locationId: number): Promise<Departments> {
     return this.departmentService.findOne(locationId);
