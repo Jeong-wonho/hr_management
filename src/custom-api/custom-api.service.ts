@@ -1,13 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import axios from 'axios';
 
 @Injectable()
 export class CustomApiService {
+  constructor(private readonly configService: ConfigService) {}
   //대기오염 측정 관련 조회 api, 추가 사항 필요할 시 url 추가로 개발
   async fetchDataFromPublicApi(reqData): Promise<any> {
     const district = reqData.district;
-    const apiKey =
-      'FnDSfJObZchiQAx5rsm%2FnO6VIWahqzdzTOGa%2F%2FWqpQJqXOfJ6SFZT%2F1J0z45w67yIy1AWTbbvIxTe426w%2BQrHA%3D%3D';
+    const apiKey = this.configService.get<string>('OPEN_APIKEYS');
     const apiUrl = `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=${district}&dataTerm=month&pageNo=1&numOfRows=100&returnType=json&serviceKey=${apiKey}`;
     console.log('url', apiUrl);
     try {

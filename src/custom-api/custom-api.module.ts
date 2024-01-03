@@ -4,6 +4,6 @@ import { CustomApiController } from './custom-api.controller';
 
 @Module({
   providers: [CustomApiService],
-  controllers: [CustomApiController]
+  controllers: [CustomApiController],
 })
 export class CustomApiModule {}
