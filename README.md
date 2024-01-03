@@ -10,8 +10,6 @@
 
 ## API 명세
 
-따로 swagger service를 두지 않고 표로 작성합니다.
-
 <table>
   <tr>
     <th>Api 명</th>
