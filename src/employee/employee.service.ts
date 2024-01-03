@@ -14,26 +14,34 @@ export class EmployeeService {
     @InjectRepository(Employees)
     private readonly employeesRepository: Repository<Employees>,
   ) {}
+  /**
+   * 전체 사원을 조회하는 api 현재는 사용하지 않습니다.
+   * @returns employees[]
+   */
+  // async getEmployees(): Promise<Employees[]> {
+  //   try {
+  //     const employees = await this.employeesRepository.find();
 
-  async getEmployees(): Promise<Employees[]> {
-    try {
-      const employees = await this.employeesRepository.find();
+  //     if (employees.length === 0) {
+  //       throw new NotFoundException({ message: 'employees is empty' });
+  //     }
+  //     return employees;
+  //   } catch (error) {
+  //     throw new BadRequestException({ message: '잘못된 요청입니다.' });
+  //   }
+  // }
 
-      if (employees.length === 0) {
-        throw new NotFoundException({ message: 'employees is empty' });
-      }
-      return employees;
-    } catch (error) {
-      throw new BadRequestException({ message: '잘못된 요청입니다.' });
-    }
-  }
-
-  //특정 사원의 현재 정보 조회 method
+  /**
+   * 특정 사원 정보를 조회하는 api
+   * @param employeeId : 사원ID
+   * @returns employee entity
+   */
   async getEmployee(employeeId): Promise<Employees> {
     try {
-      const employee = this.employeesRepository.findOne({
+      const employee = await this.employeesRepository.findOne({
         where: { employeeId: employeeId },
       });
+
       if (!employee) {
         throw new NotFoundException(
           `해당 사원 ID(${employeeId})를 발견하지 못했습니다. `,
