@@ -33,21 +33,22 @@ export class DepartmentService {
 
   // 특정 부서 및 위치 정보 조회 가능한 api
   async findOne(locationId): Promise<Departments> {
+    console.log(locationId);
     try {
-      const employee = await this.departmentsRepository.findOne({
+      const department = await this.departmentsRepository.findOne({
         where: { locationId: locationId },
         relations: {
           location: true,
         },
       });
-      if (!employee) {
+      if (!department) {
         throw new NotFoundException(
-          `해당 위치정보(${locationId})에 해당하는 직원을 찾을 수 없습니다. `,
+          `해당 위치정보(${locationId})에 해당하는 부서를 찾을 수 없습니다. `,
         );
       }
-      return employee;
+      return department;
     } catch (error) {
-      throw new BadRequestException({ message: '잘못된 요청입니다.' });
+      return error.response;
     }
   }
 }

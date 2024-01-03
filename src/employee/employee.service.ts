@@ -29,21 +29,19 @@ export class EmployeeService {
   }
 
   //특정 사원의 현재 정보 조회 method
-  async getEmployee(employee_id): Promise<Employees> {
+  async getEmployee(employeeId): Promise<Employees> {
     try {
       const employee = this.employeesRepository.findOne({
-        where: { employeeId: employee_id },
+        where: { employeeId: employeeId },
       });
       if (!employee) {
         throw new NotFoundException(
-          `Employee with ID ${employee_id} not found. `,
+          `해당 사원 ID(${employeeId})를 발견하지 못했습니다. `,
         );
       }
       return employee;
     } catch (error) {
-      throw new BadRequestException({
-        message: '잘못된 요청입니다.',
-      });
+      return error.response;
     }
   }
 
@@ -58,20 +56,19 @@ export class EmployeeService {
       });
       if (!employee) {
         throw new NotFoundException(
-          `Employee with ID ${employeeId} not found. `,
+          `해당 사원 ID(${employeeId})에 대한 이력을 발견하지 못했습니다. `,
         );
       }
       return employee;
     } catch (error) {
-      throw new BadRequestException({
-        message: '잘못된 요청입니다.',
-      });
+      return error.response;
     }
   }
   //특정사원을 업데이트 하는 서비스
   //에러처리
   async updateEmployee(id: number, updateData: updateEmployeeDto) {
     try {
+      console.log(id);
       const employeeData = await this.getEmployee(id);
       if (!employeeData) {
         throw new NotFoundException('해당하는 부서를 찾을 수 없습니다.');

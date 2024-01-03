@@ -9,7 +9,9 @@ export class CustomApiService {
   async fetchDataFromPublicApi(reqData): Promise<any> {
     const district = reqData.district;
     const apiKey = this.configService.get<string>('OPEN_APIKEYS');
-    const apiUrl = `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=${district}&dataTerm=month&pageNo=1&numOfRows=100&returnType=json&serviceKey=${apiKey}`;
+    const apiUrl = `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=${
+      district ? district : '강남구'
+    }&dataTerm=month&pageNo=1&numOfRows=100&returnType=json&serviceKey=${apiKey}`;
     console.log('url', apiUrl);
     try {
       const response = await axios.get(apiUrl, {
@@ -18,7 +20,6 @@ export class CustomApiService {
           //다른 필요한 매개변수들을 추가하세요.
         },
       });
-      console.log(response);
       return response.data.response.body;
     } catch (error) {
       throw new Error('API 호출에 실패했습니다');
