@@ -9,9 +9,7 @@
 ## API 명세
 따로 swagger service를 두지 않고 표로 작성합니다.
 ### 요청 메세지 명세
-| api 명 | api url | 샘플데이터 | 설명 |
-|-|  -  |  -  |  -  |
-|employee| 
+
 
 ### 요청 메세지 명세
 <table>
