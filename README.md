@@ -27,7 +27,7 @@ api 명세는 다음과 같이 구성되어 있습니다.
     <td>Get</td>
     <td>http://43.201.197.232:3000/employee/{employeeId}</td>
     <td>특정 사원의 현재 정보 조회 가능한 API 구현 </td>
-    <td>http://43.201.197.232:3000/employee/{employeeId}</td>
+    <td>http://43.201.197.232:3000/employee/101</td>
     <td>{
 	"employeeId": 101,
 	"firstName": "Neena",
@@ -47,7 +47,7 @@ api 명세는 다음과 같이 구성되어 있습니다.
     <td>Get</td>
     <td>http://43.201.197.232:3000/employee/jobHistory/{employeeId}</td>
     <td>특정 사원의 이력 정보 조회 가능한 API - typeorm을 사용하다보니 기존 방식의 데이터 스키마로는 진행이 어려웠다. 그래서 임의로 jobhistory_id 에 primary_key를 추가하였다.</td>
-    <td>http://43.201.197.232:3000/employee/jobHistory/{employeeId}</td>
+    <td>http://43.201.197.232:3000/employee/jobHistory/101</td>
     <td>{
 	"employeeId": 101,
 	"firstName": "Neena",
@@ -142,6 +142,7 @@ api 명세는 다음과 같이 구성되어 있습니다.
     <td>http://43.201.197.232:3000/employee/{employeeId}</td>
     <td>특정사원의 정보를 update하는 api이다.</td>
     <td>
+    url: http://43.201.197.232:3000/employee/101
     {
       "firstName":"wonho",
       "lastName":"Jeong",
@@ -172,7 +173,7 @@ api 명세는 다음과 같이 구성되어 있습니다.
     <td>http://43.201.197.232:3000/department/{locationId}</td>
     <td>특정 부서 및 위치 정보 조회 가능한 API 구현 </td>
     <td>
-    locationId 1700으로 진행
+    http://43.201.197.232:3000/department/1700<
     </td>
     <td>
     {
