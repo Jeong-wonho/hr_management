@@ -4,8 +4,12 @@
 nest로 간단한 프로젝트 인사 관리 시스템을 만들었습니다.
 
 ## 실행 방법
-```npm install```
-```npm start:dev```
+```
+npm install
+```
+```
+npm start:dev
+```
 로 실행해주시기 바랍니다.
 
 ## 개발 환경
@@ -31,9 +35,9 @@ api 명세는 다음과 같이 구성되어 있습니다.
   <tr>
     <td>Employee</td>
     <td>Get</td>
-    <td>http://43.201.197.232:3000/employee/{employeeId}</td>
+    <td>http://localhost:3000/employee/{employeeId}</td>
     <td>특정 사원의 현재 정보 조회 가능한 API 구현 </td>
-    <td>http://43.201.197.232:3000/employee/101</td>
+    <td>http://localhost:3000/employee/101</td>
     <td>{
 	"employeeId": 101,
 	"firstName": "Neena",
@@ -51,9 +55,9 @@ api 명세는 다음과 같이 구성되어 있습니다.
   <tr>
     <td>Employee</td>
     <td>Get</td>
-    <td>http://43.201.197.232:3000/employee/jobHistory/{employeeId}</td>
+    <td>http://localhost:3000/employee/jobHistory/{employeeId}</td>
     <td>특정 사원의 이력 정보 조회 가능한 API - typeorm을 사용하다보니 기존 방식의 데이터 스키마로는 진행이 어려웠다. 그래서 임의로 jobhistory_id 에 primary_key를 추가하였다.</td>
-    <td>http://43.201.197.232:3000/employee/jobHistory/101</td>
+    <td>http://localhost:3000/employee/jobHistory/101</td>
     <td>{
 	"employeeId": 101,
 	"firstName": "Neena",
@@ -89,7 +93,7 @@ api 명세는 다음과 같이 구성되어 있습니다.
   <tr>
     <td>Employee</td>
     <td>Post</td>
-    <td>http://43.201.197.232:3000/employee/salaryUpdate</td>
+    <td>http://localhost:3000/employee/salaryUpdate</td>
     <td>특정 부서의 급여를 특정 비율로 인상 API - 해당 api를 department controller에 구현할지 employee에 구현할 것인지에 대한 고민이 많았다. 결론적으로 급여 정보가 employee에 위치해있어서 employee 하단부에 위치 시켰다. table column이 salary와 commission_pct로 컬럼이 분리되어 있으며, job 테이블에 직업에 관한 max, min salary가 설정되어 있어서 salary와 commission_pct의 적용한 값이 해당 직업의 max값을 넘을 경우 max값으로 적용되도록 하였다. </td>
     <td>
     {
@@ -145,10 +149,10 @@ api 명세는 다음과 같이 구성되어 있습니다.
   <tr>
     <td>Employee</td>
     <td>Post</td>
-    <td>http://43.201.197.232:3000/employee/{employeeId}</td>
+    <td>http://localhost:3000/employee/{employeeId}</td>
     <td>특정사원의 정보를 update하는 api이다.</td>
     <td>
-    url: http://43.201.197.232:3000/employee/101
+    url: http://localhost:3000/employee/101
     {
       "firstName":"wonho",
       "lastName":"Jeong",
@@ -176,10 +180,10 @@ api 명세는 다음과 같이 구성되어 있습니다.
   <tr>
     <td>department</td>
     <td>Get</td>
-    <td>http://43.201.197.232:3000/department/{locationId}</td>
+    <td>http://localhost:3000/department/{locationId}</td>
     <td>특정 부서 및 위치 정보 조회 가능한 API 구현 </td>
     <td>
-    http://43.201.197.232:3000/department/1700<
+    http://localhost:3000/department/1700<
     </td>
     <td>
     {
@@ -201,12 +205,12 @@ api 명세는 다음과 같이 구성되어 있습니다.
   <tr>
     <td>custom-api</td>
     <td>Get</td>
-    <td>http://43.201.197.232:3000/custom-api?district={district}</td>
+    <td>http://localhost:3000/custom-api?district={district}</td>
     <td> 미세먼지에 대한 오염도 확인 api 
         기본값은 강남구로 설정되어 있습니다. 다른구 검색시 아래와 같이 json파일로 요청하면 됩니다. 서버 요청시 시간이 오래거리는 문제가 있습니다. 다시 실행하시면 됩니다. district=서울의 구를 의미합니다. ex) 마포구
     </td>
     <td>
-    http://43.201.197.232:3000/custom-api?district=마포구
+    http://localhost:3000/custom-api?district=마포구
     </td>
     <td>
     {
@@ -237,6 +241,3 @@ api 명세는 다음과 같이 구성되어 있습니다.
 }</td>
   </tr>
 </table>
-
-## 접속 URL
-<a href="http://43.201.197.232:3000/"> http://43.201.197.232:3000/</a>
